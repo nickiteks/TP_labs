@@ -1,6 +1,6 @@
 ﻿namespace PT_lab_1
 {
-    partial class FormCar
+    partial class FormTank
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBoxCars = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTank = new System.Windows.Forms.PictureBox();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTank)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBoxCars
+            // pictureBoxTank
             // 
-            this.pictureBoxCars.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxCars.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxCars.Name = "pictureBoxCars";
-            this.pictureBoxCars.Size = new System.Drawing.Size(884, 461);
-            this.pictureBoxCars.TabIndex = 0;
-            this.pictureBoxCars.TabStop = false;
+            this.pictureBoxTank.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxTank.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxTank.Name = "pictureBoxTank";
+            this.pictureBoxTank.Size = new System.Drawing.Size(884, 461);
+            this.pictureBoxTank.TabIndex = 0;
+            this.pictureBoxTank.TabStop = false;
             // 
             // buttonCreate
             // 
@@ -54,7 +54,7 @@
             this.buttonCreate.TabIndex = 1;
             this.buttonCreate.Text = "создать";
             this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.ButtonCreate_Click_1);
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click_1);
             // 
             // buttonUp
             // 
@@ -103,7 +103,7 @@
             this.buttonRight.UseVisualStyleBackColor = true;
             this.buttonRight.Click += new System.EventHandler(this.buttonMove_Click);
             // 
-            // FormCar
+            // FormTank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -114,18 +114,18 @@
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonCreate);
-            this.Controls.Add(this.pictureBoxCars);
-            this.Name = "FormCar";
+            this.Controls.Add(this.pictureBoxTank);
+            this.Name = "FormTank";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCars)).EndInit();
+            this.Text = "танк";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTank)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxCars;
+        private System.Windows.Forms.PictureBox pictureBoxTank;
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonLeft;
