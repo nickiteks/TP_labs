@@ -77,75 +77,32 @@ namespace PT_lab_1
             Pen pen = new Pen(Color.Black);
             Brush dopBrush = new SolidBrush(DopColor);
             // отрисуем сперва передний спойлер автомобиля (чтобы потом отрисовка
+
             
  if (FrontSpoiler)
             {
-                g.DrawEllipse(pen, _startPosX + 80, _startPosY - 6, 20, 20);
-                g.DrawEllipse(pen, _startPosX + 80, _startPosY + 35, 20, 20);
-                g.DrawEllipse(pen, _startPosX - 5, _startPosY - 6, 20, 20);
-                g.DrawEllipse(pen, _startPosX - 5, _startPosY + 35, 20, 20);
-                g.DrawRectangle(pen, _startPosX + 80, _startPosY - 6, 15, 15);
-                g.DrawRectangle(pen, _startPosX + 80, _startPosY + 40, 15, 15);
-                g.DrawRectangle(pen, _startPosX, _startPosY - 6, 14, 15);
-                g.DrawRectangle(pen, _startPosX, _startPosY + 40, 14, 15);
+                Brush brFirstGun = new SolidBrush(DopColor);
+                g.DrawRectangle(pen, _startPosX + 5, _startPosY + 10, 85, 10);
 
-                g.FillEllipse(dopBrush, _startPosX + 80, _startPosY - 5, 20, 20);
-                g.FillEllipse(dopBrush, _startPosX + 80, _startPosY + 35, 20, 20);
-                g.FillRectangle(dopBrush, _startPosX + 75, _startPosY, 25, 40);
-                g.FillRectangle(dopBrush, _startPosX + 80, _startPosY - 5, 15, 15);
-                g.FillRectangle(dopBrush, _startPosX + 80, _startPosY + 40, 15, 15);
-                g.FillEllipse(dopBrush, _startPosX - 5, _startPosY - 5, 20, 20);
-                g.FillEllipse(dopBrush, _startPosX - 5, _startPosY + 35, 20, 20);
-                g.FillRectangle(dopBrush, _startPosX - 5, _startPosY, 25, 40);
-                g.FillRectangle(dopBrush, _startPosX, _startPosY - 5, 15, 15);
-                g.FillRectangle(dopBrush, _startPosX, _startPosY + 40, 15, 15);
+                g.FillRectangle(brFirstGun, _startPosX + 5, _startPosY + 10, 85, 10);
+                g.DrawRectangle(pen, _startPosX + 5, _startPosY + 10, 85, 10);
             }
-            // и боковые
             if (SideSpoiler)
             {
-                g.DrawRectangle(pen, _startPosX + 25, _startPosY - 6, 39, 10);
-                g.DrawRectangle(pen, _startPosX + 25, _startPosY + 45, 39, 10);
-                g.FillRectangle(dopBrush, _startPosX + 25, _startPosY - 5, 40, 10);
-                g.FillRectangle(dopBrush, _startPosX + 25, _startPosY + 45, 40, 10);
-            }
-            // теперь отрисуем основной кузов автомобиля
-            base.DrawCar(g);
-            // рисуем гоночные полоски
-            switch (_countLines)
-            {
-                case 1:
-                    g.FillRectangle(dopBrush, _startPosX + 65, _startPosY + 18, 25,
-                   15);
-                    g.FillRectangle(dopBrush, _startPosX + 25, _startPosY + 18, 35,
-                   15);
-                    g.FillRectangle(dopBrush, _startPosX, _startPosY + 18, 20, 15);
-                    break;
-                case 2:
-                    g.FillRectangle(dopBrush, _startPosX + 65, _startPosY + 15, 25, 8);
-                    g.FillRectangle(dopBrush, _startPosX + 65, _startPosY + 28, 25, 8);
-                    g.FillRectangle(dopBrush, _startPosX + 25, _startPosY + 15, 35, 8);
-                    g.FillRectangle(dopBrush, _startPosX + 25, _startPosY + 28, 35, 8);
-                    g.FillRectangle(dopBrush, _startPosX, _startPosY + 15, 20, 8);
-                    g.FillRectangle(dopBrush, _startPosX, _startPosY + 28, 20, 8);
-                    break;
-                case 3:
-                    g.FillRectangle(dopBrush, _startPosX + 65, _startPosY + 15, 25, 5);
-                    g.FillRectangle(dopBrush, _startPosX + 65, _startPosY + 23, 25, 5);
-                    g.FillRectangle(dopBrush, _startPosX + 65, _startPosY + 31, 25, 5);
-                    g.FillRectangle(dopBrush, _startPosX + 25, _startPosY + 15, 35, 5);
-                    g.FillRectangle(dopBrush, _startPosX + 25, _startPosY + 23, 35, 5);
-                    g.FillRectangle(dopBrush, _startPosX + 25, _startPosY + 31, 35, 5);
-                    g.FillRectangle(dopBrush, _startPosX, _startPosY + 15, 20, 5);
-                    g.FillRectangle(dopBrush, _startPosX, _startPosY + 23, 20, 5);
-                    g.FillRectangle(dopBrush, _startPosX, _startPosY + 31, 20, 5);
-                    break;
-            }
+                Brush brSecondGun = new SolidBrush(DopColor);
+                g.DrawRectangle(pen, _startPosX + 5, _startPosY + 40, 85, 6);
 
-            // рисуем задний спойлер автомобиля
-            if (BackSpoiler)
+                g.FillRectangle(brSecondGun, _startPosX + 5, _startPosY + 40, 85, 6);
+
+                g.DrawRectangle(pen, _startPosX + 5, _startPosY + 40, 85, 6);
+
+            }
+            if (SideSpoiler)
             {
-                g.FillRectangle(dopBrush, _startPosX - 5, _startPosY, 10, 50);
-                g.DrawRectangle(pen, _startPosX - 5, _startPosY, 10, 50);
+                Brush brThirdGun = new SolidBrush(DopColor);
+                g.DrawRectangle(pen, _startPosX - 35, _startPosY + 32, 80, 6);
+                g.FillRectangle(brThirdGun, _startPosX - 35, _startPosY + 32, 80, 6);
+                g.DrawRectangle(pen, _startPosX - 35, _startPosY + 32, 80, 6);
             }
         }
     }
