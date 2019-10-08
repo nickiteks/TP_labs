@@ -80,7 +80,8 @@ namespace PT_lab_1
            Color.Yellow, true, true, true);
             car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width,
            pictureBoxCars.Height);
-            Draw();
+            Draw();
+
         }
 
         private void ButtonCreateCar_Click_1(object sender, EventArgs e)

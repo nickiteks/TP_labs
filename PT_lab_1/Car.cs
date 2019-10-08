@@ -67,37 +67,24 @@ namespace PT_lab_1
         public override void DrawCar(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
-            //границы автомобиля
-            g.DrawEllipse(pen, _startPosX, _startPosY, 20, 20);
-            g.DrawEllipse(pen, _startPosX, _startPosY + 30, 20, 20);
-            g.DrawEllipse(pen, _startPosX + 70, _startPosY, 20, 20);
-            g.DrawEllipse(pen, _startPosX + 70, _startPosY + 30, 20, 20);
-            g.DrawRectangle(pen, _startPosX - 1, _startPosY + 10, 10, 30);
-            g.DrawRectangle(pen, _startPosX + 80, _startPosY + 10, 10, 30);
-            g.DrawRectangle(pen, _startPosX + 10, _startPosY - 1, 70, 52);
-            //задние фары
-            Brush brRed = new SolidBrush(Color.Red);
-            g.FillEllipse(brRed, _startPosX, _startPosY, 20, 20);
-            g.FillEllipse(brRed, _startPosX, _startPosY + 30, 20, 20);
-            //передние фары
-            Brush brYellow = new SolidBrush(Color.Yellow);
-            g.FillEllipse(brYellow, _startPosX + 70, _startPosY, 20, 20);
-            g.FillEllipse(brYellow, _startPosX + 70, _startPosY + 30, 20, 20);
-            //кузов
-            Brush br = new SolidBrush(MainColor);
-            g.FillRectangle(br, _startPosX, _startPosY + 10, 10, 30);
-            g.FillRectangle(br, _startPosX + 80, _startPosY + 10, 10, 30);
-            g.FillRectangle(br, _startPosX + 10, _startPosY, 70, 50);
-            //стекла
-            Brush brBlue = new SolidBrush(Color.LightBlue);
-            g.FillRectangle(brBlue, _startPosX + 60, _startPosY + 5, 5, 40);
-            g.FillRectangle(brBlue, _startPosX + 20, _startPosY + 5, 5, 40);
-            g.FillRectangle(brBlue, _startPosX + 25, _startPosY + 3, 35, 2);
-            g.FillRectangle(brBlue, _startPosX + 25, _startPosY + 46, 35, 2);
-            //выделяем рамкой крышу
-            g.DrawRectangle(pen, _startPosX + 25, _startPosY + 5, 35, 40);
-            g.DrawRectangle(pen, _startPosX + 65, _startPosY + 10, 25, 30);
-            g.DrawRectangle(pen, _startPosX, _startPosY + 10, 15, 30);
+            
+            Brush brTank = new SolidBrush(MainColor);
+            g.DrawRectangle(pen, _startPosX + 10, _startPosY - 5, 20, 10);
+            g.FillRectangle(brTank, _startPosX + 10, _startPosY - 5, 20, 10);
+            g.DrawRectangle(pen, _startPosX + 10, _startPosY - 5, 20, 10);
+            g.DrawEllipse(pen, _startPosX, _startPosY, 52, 31);
+            g.DrawEllipse(pen, _startPosX - 10, _startPosY + 30, 75, 40);
+            g.FillEllipse(brTank, _startPosX, _startPosY, 52, 31);
+            g.FillEllipse(brTank, _startPosX - 10, _startPosY + 30, 75, 40);
+            g.DrawEllipse(pen, _startPosX, _startPosY, 52, 31);
+            g.DrawEllipse(pen, _startPosX - 10, _startPosY + 30, 75, 40);
+            int plase = 10;
+            for (int i = 0; i < 4; i++)
+            {
+                g.DrawEllipse(pen, _startPosX - plase, _startPosY + 40, 19, 20);
+                plase -= 19;
+            }
+            g.DrawRectangle(pen, _startPosX + 10, _startPosY + 10, 25, 10);
         }
     }
 
