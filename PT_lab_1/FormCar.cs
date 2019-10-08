@@ -12,7 +12,8 @@ namespace PT_lab_1
 {
     public partial class FormCar : Form
     {
-        private SportCar car;
+
+        private ITransport car;
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -23,6 +24,7 @@ namespace PT_lab_1
         /// <summary>
         /// Метод отрисовки машины
         /// </summary>
+        /// 
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxCars.Width, pictureBoxCars.Height);
@@ -31,19 +33,17 @@ namespace PT_lab_1
             pictureBoxCars.Image = bmp;
         }
         /// <summary>
-        /// Обработка нажатия кнопки "Создать"
+        /// Обработка нажатия кнопки "Создать автомобиль"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonCreate_Click(object sender, EventArgs e)
-        {
-            Random rnd = new Random();
-            car = new SportCar(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue,
-           Color.Yellow, true, true, true);
-            car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width,
-           pictureBoxCars.Height);
-            Draw();
-        }
+        
+        /// <summary>
+        /// Обработка нажатия кнопки "Создать гоночный автомобиль"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+      
         /// <summary>
         /// Обработка нажатия кнопок управления
         /// </summary>
@@ -69,17 +69,29 @@ namespace PT_lab_1
                     break;
             }
             Draw();
+
+
         }
 
-        private void ButtonCreate_Click_1(object sender, EventArgs e)
+        private void ButtonCreate_Click(object sender, EventArgs e)
         {
-            Random rnd = new Random();
+           Random rnd = new Random();
             car = new SportCar(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue,
            Color.Yellow, true, true, true);
             car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width,
            pictureBoxCars.Height);
-            Draw();
+            Draw();
+        }
 
+        private void ButtonCreateCar_Click_1(object sender, EventArgs e)
+        {
+            
+            Random rnd = new Random();
+            car = new Car(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue);
+            car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width,
+           pictureBoxCars.Height);
+            Draw();
         }
     }
 }
+
