@@ -78,7 +78,7 @@ namespace PT_lab_1
             Brush dopBrush = new SolidBrush(DopColor);
             // отрисуем сперва передний спойлер автомобиля (чтобы потом отрисовка
             
- if (FrontSpoiler)
+            if (FrontSpoiler)
             {
                 g.DrawEllipse(pen, _startPosX + 80, _startPosY - 6, 20, 20);
                 g.DrawEllipse(pen, _startPosX + 80, _startPosY + 35, 20, 20);
