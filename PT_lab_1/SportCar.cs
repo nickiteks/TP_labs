@@ -104,6 +104,9 @@ namespace PT_lab_1
                 g.FillRectangle(brThirdGun, _startPosX - 35, _startPosY + 32, 80, 6);
                 g.DrawRectangle(pen, _startPosX - 35, _startPosY + 32, 80, 6);
             }
+            base.DrawCar(g);
+
+
         }
     }
 
