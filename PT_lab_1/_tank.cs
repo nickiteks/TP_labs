@@ -8,13 +8,7 @@ using System.Threading.Tasks;
 namespace PT_lab_1
 {
 
-    public enum Direction
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
+    
 
 
     class _tank : WarCar
