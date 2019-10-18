@@ -33,7 +33,8 @@ namespace PT_lab_1
             Graphics gr = Graphics.FromImage(bmp);
             parking.Draw(gr);
             pictureBoxParking.Image = bmp;
-        }
+        }
+
         /// <summary>
         /// Обработка нажатия кнопки "Припарковать автомобиль"
         /// </summary>
