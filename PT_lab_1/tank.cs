@@ -14,7 +14,7 @@ namespace PT_lab_1
     class tank
     {
 
-
+        //
        
         private float _startPosX;
        
