@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 
 namespace PT_lab_1
 {
-    public class Car : Vehicle
+    public class WarCar : Vehicle
     {
         /// <summary>
         /// Ширина отрисовки автомобиля
         /// </summary>
-        protected const int carWidth = 100;
+        protected const int tankWidth = 100;
         /// <summary>
         /// Ширина отрисовки автомобиля
         /// </summary>
-        protected const int carHeight = 60;
+        protected const int tankHeight = 60;
         /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес автомобиля</param>
         /// <param name="mainColor">Основной цвет кузова</param>
-        public Car(int maxSpeed, float weight, Color mainColor)
+        public WarCar(int maxSpeed, float weight, Color mainColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
@@ -36,7 +36,7 @@ namespace PT_lab_1
             {
                 // вправо
                 case Direction.Right:
-                    if (_startPosX + step < _pictureWidth - carWidth)
+                    if (_startPosX + step < _pictureWidth - tankWidth)
                     {
                         _startPosX += step;
                     }
@@ -57,34 +57,32 @@ namespace PT_lab_1
                     break;
                 //вниз
                 case Direction.Down:
-                    if (_startPosY + step < _pictureHeight - carHeight)
+                    if (_startPosY + step < _pictureHeight - tankHeight)
                     {
                         _startPosY += step;
                     }
                     break;
             }
         }
-        public override void DrawCar(Graphics g)
+        public override void drawWarCar(Graphics g)
         {
+
+
+
             Pen pen = new Pen(Color.Black);
-            
-            Brush brTank = new SolidBrush(MainColor);
-            g.DrawRectangle(pen, _startPosX + 10, _startPosY - 5, 20, 10);
-            g.FillRectangle(brTank, _startPosX + 10, _startPosY - 5, 20, 10);
-            g.DrawRectangle(pen, _startPosX + 10, _startPosY - 5, 20, 10);
-            g.DrawEllipse(pen, _startPosX, _startPosY, 52, 31);
-            g.DrawEllipse(pen, _startPosX - 10, _startPosY + 30, 75, 40);
-            g.FillEllipse(brTank, _startPosX, _startPosY, 52, 31);
-            g.FillEllipse(brTank, _startPosX - 10, _startPosY + 30, 75, 40);
-            g.DrawEllipse(pen, _startPosX, _startPosY, 52, 31);
-            g.DrawEllipse(pen, _startPosX - 10, _startPosY + 30, 75, 40);
-            int plase = 10;
-            for (int i = 0; i < 4; i++)
-            {
-                g.DrawEllipse(pen, _startPosX - plase, _startPosY + 40, 19, 20);
-                plase -= 19;
-            }
-            g.DrawRectangle(pen, _startPosX + 10, _startPosY + 10, 25, 10);
+
+            Brush warCar = new SolidBrush(MainColor);
+            Brush blackBrush = new SolidBrush(Color.Black);
+
+            g.FillRectangle(warCar, _startPosX + 60, _startPosY + 35, 50, 45);
+            g.FillRectangle(blackBrush, _startPosX + 80, _startPosY + 40, 30, 30);
+            g.FillRectangle(warCar, _startPosX - 20, _startPosY + 30, 80, 50);
+            g.DrawRectangle(pen, _startPosX - 20, _startPosY + 30, 80, 50);
+            g.DrawRectangle(pen, _startPosX - 15, _startPosY + 35, 60, 30);
+            g.DrawRectangle(pen, _startPosX + 60, _startPosY + 35, 50, 45);
+
+            g.FillEllipse(blackBrush, _startPosX - 18, _startPosY + 70, 40, 40);
+            g.FillEllipse(blackBrush, _startPosX + 55, _startPosY + 70, 40, 40);
         }
     }
 

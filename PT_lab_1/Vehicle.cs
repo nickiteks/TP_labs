@@ -42,7 +42,8 @@ namespace PT_lab_1
             _pictureWidth = width;
             _pictureHeight = height;
         }
-        public abstract void DrawCar(Graphics g);
+        public abstract void drawWarCar(Graphics g);
         public abstract void MoveTransport(Direction direction);
-    }
+    }
+
 }

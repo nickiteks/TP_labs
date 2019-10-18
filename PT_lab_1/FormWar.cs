@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace PT_lab_1
 {
-    public partial class FormCar : Form
+    public partial class FormWar : Form
     {
 
         private ITransport car;
         /// <summary>
         /// Конструктор
         /// </summary>
-        public FormCar()
+        public FormWar()
         {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace PT_lab_1
         {
             Bitmap bmp = new Bitmap(pictureBoxCars.Width, pictureBoxCars.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            car.DrawCar(gr);
+            car.drawWarCar(gr);
             pictureBoxCars.Image = bmp;
         }
         /// <summary>
@@ -37,13 +37,13 @@ namespace PT_lab_1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        
+
         /// <summary>
         /// Обработка нажатия кнопки "Создать гоночный автомобиль"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-      
+
         /// <summary>
         /// Обработка нажатия кнопок управления
         /// </summary>
@@ -75,8 +75,8 @@ namespace PT_lab_1
 
         private void ButtonCreate_Click(object sender, EventArgs e)
         {
-           Random rnd = new Random();
-            car = new SportCar(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue,
+            Random rnd = new Random();
+            car = new _tank(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Green,
            Color.Yellow, true, true, true);
             car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width,
            pictureBoxCars.Height);
@@ -86,13 +86,15 @@ namespace PT_lab_1
 
         private void ButtonCreateCar_Click_1(object sender, EventArgs e)
         {
-            
+
             Random rnd = new Random();
-            car = new Car(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue);
+            car = new WarCar(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Green);
             car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width,
            pictureBoxCars.Height);
             Draw();
         }
+
+    
     }
 }
 

@@ -17,7 +17,7 @@ namespace PT_lab_1
     }
 
 
-    class SportCar:Car
+    class _tank : WarCar
     {
         /// <summary>
         /// Дополнительный цвет
@@ -26,30 +26,19 @@ namespace PT_lab_1
         /// <summary>
         /// Признак наличия переднего спойлера
         /// </summary>
-        public bool FrontSpoiler { private set; get; }
+        public bool firstGun { private set; get; }
         /// <summary>
         /// Признак наличия боковых спойлеров
         /// </summary>
-        public bool SideSpoiler { private set; get; }
+        public bool secondGun { private set; get; }
         /// <summary>
         /// Признак наличия заднего спойлера
         /// </summary>
-        public bool BackSpoiler { private set; get; }
+        public bool thirdGun { private set; get; }
         /// <summary>
         /// Количество полос
         /// </summary>
-        private int _countLines;
-        /// <summary>
-        /// Количество полос
-        /// </summary>
-        public int CountLines
-        {
-            set
-            {
-                if (value > 0 && value < 4) _countLines = value;
-            }
-            get { return _countLines; }
-        }
+
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -60,34 +49,35 @@ namespace PT_lab_1
         /// <param name="frontSpoiler">Признак наличия переднего спойлера</param>
         /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>
         /// <param name="backSpoiler">Признак наличия заднего спойлера</param>
-        public SportCar(int maxSpeed, float weight, Color mainColor, Color dopColor,
-       bool frontSpoiler, bool sideSpoiler, bool backSpoiler) :
+        public _tank(int maxSpeed, float weight, Color mainColor, Color dopColor,
+       bool _firstGun, bool _secondGun, bool _thirdGun) :
         base(maxSpeed, weight, mainColor)
         {
             DopColor = dopColor;
-            FrontSpoiler = frontSpoiler;
-            SideSpoiler = sideSpoiler;
+            firstGun = _firstGun;
 
-            BackSpoiler = backSpoiler;
+            secondGun = _secondGun;
+
+            thirdGun = _thirdGun;
             Random rnd = new Random();
-            CountLines = rnd.Next(1, 4);
         }
-        public override void DrawCar(Graphics g)
+        public override void drawWarCar(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
             Brush dopBrush = new SolidBrush(DopColor);
             // отрисуем сперва передний спойлер автомобиля (чтобы потом отрисовка
 
-            
- if (FrontSpoiler)
+
+            if (firstGun)
             {
                 Brush brFirstGun = new SolidBrush(DopColor);
+
                 g.DrawRectangle(pen, _startPosX + 5, _startPosY + 10, 85, 10);
 
                 g.FillRectangle(brFirstGun, _startPosX + 5, _startPosY + 10, 85, 10);
                 g.DrawRectangle(pen, _startPosX + 5, _startPosY + 10, 85, 10);
             }
-            if (SideSpoiler)
+            if (secondGun)
             {
                 Brush brSecondGun = new SolidBrush(DopColor);
                 g.DrawRectangle(pen, _startPosX + 5, _startPosY + 40, 85, 6);
@@ -97,14 +87,29 @@ namespace PT_lab_1
                 g.DrawRectangle(pen, _startPosX + 5, _startPosY + 40, 85, 6);
 
             }
-            if (SideSpoiler)
+            if (secondGun)
             {
                 Brush brThirdGun = new SolidBrush(DopColor);
                 g.DrawRectangle(pen, _startPosX - 35, _startPosY + 32, 80, 6);
                 g.FillRectangle(brThirdGun, _startPosX - 35, _startPosY + 32, 80, 6);
                 g.DrawRectangle(pen, _startPosX - 35, _startPosY + 32, 80, 6);
             }
-            base.DrawCar(g);
+
+
+
+
+            Brush brTank = new SolidBrush(MainColor);
+            g.DrawRectangle(pen, _startPosX + 5, _startPosY + 10, 85, 10);
+            g.DrawRectangle(pen, _startPosX + 10, _startPosY - 5, 20, 10);
+            g.FillRectangle(brTank, _startPosX + 10, _startPosY - 5, 20, 10);
+            g.DrawEllipse(pen, _startPosX, _startPosY, 52, 31);
+            //  g.DrawEllipse(pen, _startPosX - 10, _startPosY + 30, 75, 40);
+            g.FillEllipse(brTank, _startPosX, _startPosY, 52, 31);
+            //  g.FillEllipse(brTank, _startPosX - 10, _startPosY + 30, 75, 40);
+            g.DrawEllipse(pen, _startPosX, _startPosY, 52, 31);
+            //  g.DrawEllipse(pen, _startPosX - 10, _startPosY + 30, 75, 40);
+
+            base.drawWarCar(g);
 
 
         }

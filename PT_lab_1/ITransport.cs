@@ -27,6 +27,6 @@ namespace PT_lab_1
         /// Отрисовка автомобиля
         /// </summary>
         /// <param name="g"></param>
-        void DrawCar(Graphics g);
+        void drawWarCar(Graphics g);
     }
 }
