@@ -19,7 +19,7 @@ namespace PT_lab_1
     class SportCar
     {
 
-
+        //222
         /// <summary>
         /// Левая координата отрисовки автомобиля
         /// </summary>
