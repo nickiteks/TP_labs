@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace PT_lab_1
 {
-    public partial class FormCar : Form
+    public partial class FormTank : Form
     {
-        private SportCar car;
+        private Tank car;
         /// <summary>
         /// Конструктор
         /// </summary>
-        public FormCar()
+        public FormTank()
         {
             InitializeComponent();
         }
@@ -27,7 +27,7 @@ namespace PT_lab_1
         {
             Bitmap bmp = new Bitmap(pictureBoxCars.Width, pictureBoxCars.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            car.DrawCar(gr);
+            car.DrawTank(gr);
             pictureBoxCars.Image = bmp;
         }
         /// <summary>
@@ -38,7 +38,7 @@ namespace PT_lab_1
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            car = new SportCar(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue,
+            car = new Tank(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue,
            Color.Yellow, true, true, true);
             car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width,
            pictureBoxCars.Height);
@@ -74,7 +74,7 @@ namespace PT_lab_1
         private void ButtonCreate_Click_1(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            car = new SportCar(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue,
+            car = new Tank(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Green,
            Color.Yellow, true, true, true);
             car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width,
            pictureBoxCars.Height);

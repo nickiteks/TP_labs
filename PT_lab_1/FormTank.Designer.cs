@@ -1,6 +1,6 @@
 ﻿namespace PT_lab_1
 {
-    partial class FormCar
+    partial class FormTank
     {
         /// <summary>
         /// Обязательная переменная конструктора.
