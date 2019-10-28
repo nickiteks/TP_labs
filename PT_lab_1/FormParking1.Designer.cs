@@ -36,6 +36,7 @@
             this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBoxTakeCar = new System.Windows.Forms.PictureBox();
+            this.listBoxLevels = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).BeginInit();
@@ -52,23 +53,23 @@
             // 
             // buttonSetCar
             // 
-            this.buttonSetCar.Location = new System.Drawing.Point(632, 36);
+            this.buttonSetCar.Location = new System.Drawing.Point(630, 143);
             this.buttonSetCar.Name = "buttonSetCar";
-            this.buttonSetCar.Size = new System.Drawing.Size(144, 69);
+            this.buttonSetCar.Size = new System.Drawing.Size(98, 41);
             this.buttonSetCar.TabIndex = 1;
             this.buttonSetCar.Text = "припарковать автомобиль";
             this.buttonSetCar.UseVisualStyleBackColor = true;
-            this.buttonSetCar.Click += new System.EventHandler(this.ButtonSetCar_Click_1);
+            this.buttonSetCar.Click += new System.EventHandler(this.buttonSetCar_Click_1);
             // 
             // buttonSetSportCar
             // 
-            this.buttonSetSportCar.Location = new System.Drawing.Point(633, 127);
+            this.buttonSetSportCar.Location = new System.Drawing.Point(632, 212);
             this.buttonSetSportCar.Name = "buttonSetSportCar";
-            this.buttonSetSportCar.Size = new System.Drawing.Size(142, 67);
+            this.buttonSetSportCar.Size = new System.Drawing.Size(95, 45);
             this.buttonSetSportCar.TabIndex = 2;
             this.buttonSetSportCar.Text = "припарковать гоночный автомобиль";
             this.buttonSetSportCar.UseVisualStyleBackColor = true;
-            this.buttonSetSportCar.Click += new System.EventHandler(this.ButtonSetSportCar_Click_1);
+            this.buttonSetSportCar.Click += new System.EventHandler(this.buttonSetSportCar_Click_1);
             // 
             // groupBox1
             // 
@@ -90,7 +91,7 @@
             this.buttonTakeCar.TabIndex = 2;
             this.buttonTakeCar.Text = "забрать";
             this.buttonTakeCar.UseVisualStyleBackColor = true;
-            this.buttonTakeCar.Click += new System.EventHandler(this.ButtonTakeCar_Click_1);
+            this.buttonTakeCar.Click += new System.EventHandler(this.buttonTakeCar_Click_1);
             // 
             // maskedTextBox
             // 
@@ -116,11 +117,21 @@
             this.pictureBoxTakeCar.TabIndex = 4;
             this.pictureBoxTakeCar.TabStop = false;
             // 
+            // listBoxLevels
+            // 
+            this.listBoxLevels.FormattingEnabled = true;
+            this.listBoxLevels.Location = new System.Drawing.Point(597, 25);
+            this.listBoxLevels.Name = "listBoxLevels";
+            this.listBoxLevels.Size = new System.Drawing.Size(149, 95);
+            this.listBoxLevels.TabIndex = 5;
+            this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.pictureBoxTakeCar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSetSportCar);
@@ -146,5 +157,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonTakeCar;
         private System.Windows.Forms.PictureBox pictureBoxTakeCar;
+        private System.Windows.Forms.ListBox listBoxLevels;
     }
 }
