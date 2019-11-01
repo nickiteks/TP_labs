@@ -13,12 +13,23 @@ namespace PT_lab_1
         /// Количество уровней-парковок
         /// </summary>
         private const int countLevel = 5;
+
+
+
+        FormCarConfig form;
+
+
+
+
         public FormParking()
 
         {
             InitializeComponent();
             parking = new MultiLevelParking(countLevel, pictureBoxParking.Width,
            pictureBoxParking.Height);
+
+           
+
             //заполнение listBox
             for (int i = 0; i < countLevel; i++)
             {
@@ -144,6 +155,35 @@ namespace PT_lab_1
                     Draw();
                 }
             }
+
+        }
+
+
+
+        private void AddCar(ITransport car)
+        {
+            if (car != null && listBoxLevels.SelectedIndex > -1)
+            {
+                int place = parking[listBoxLevels.SelectedIndex] + car;
+                if (place > -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Машину не удалось поставить");
+                }
+            }
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            form = new FormCarConfig();
+            form.AddEvent(AddCar);
+            form.Show();
+
+
+
 
         }
     }

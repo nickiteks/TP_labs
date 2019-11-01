@@ -23,5 +23,8 @@ namespace PT_lab_1
         /// </summary>
         /// <param name="g"></param>
         void DrawCar(Graphics g);
+
+        void SetMainColor(Color color);
+
     }
 }

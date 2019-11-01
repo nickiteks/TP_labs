@@ -72,6 +72,13 @@ namespace PT_lab_1
             Random rnd = new Random();
             CountLines = rnd.Next(1, 4);
         }
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+
+        }
+
+
         public override void DrawCar(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
