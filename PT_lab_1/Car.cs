@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,8 +9,6 @@ namespace PT_lab_1
 {
     public class Car : Vehicle
     {
-        /// <summary>
-        /// Ширина отрисовки автомобиля
         /// </summary>
         protected const int carWidth = 100;
         /// <summary>
@@ -29,10 +27,26 @@ namespace PT_lab_1
             Weight = weight;
             MainColor = mainColor;
         }
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="info">Информация по объекту</param>
+        public Car(string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
+        }
+
+
         public override void MoveTransport(Direction direction)
         {
             float step = MaxSpeed * 100 / Weight;
-            switch (direction)
+            switch (direction)/// 
             {
                 // вправо
                 case Direction.Right:
@@ -64,6 +78,7 @@ namespace PT_lab_1
                     break;
             }
         }
+
         public override void DrawCar(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
@@ -99,6 +114,14 @@ namespace PT_lab_1
             g.DrawRectangle(pen, _startPosX + 65, _startPosY + 10, 25, 30);
             g.DrawRectangle(pen, _startPosX, _startPosY + 10, 15, 30);
         }
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
+        }
+
+
+
+
     }
 
 

@@ -93,6 +93,8 @@ namespace PT_lab_1
            pictureBoxCars.Height);
             Draw();
         }
+
+      
     }
 }
 

@@ -17,7 +17,7 @@ namespace PT_lab_1
     }
 
 
-    class SportCar:Car
+    class SportCar : Car
     {
         /// <summary>
         /// Дополнительный цвет
@@ -35,7 +35,6 @@ namespace PT_lab_1
         /// Признак наличия заднего спойлера
         /// </summary>
         public bool BackSpoiler { private set; get; }
-        /// <summary>
         /// Количество полос
         /// </summary>
         private int _countLines;
@@ -60,22 +59,37 @@ namespace PT_lab_1
         /// <param name="frontSpoiler">Признак наличия переднего спойлера</param>
         /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>
         /// <param name="backSpoiler">Признак наличия заднего спойлера</param>
+
+
+
         public SportCar(int maxSpeed, float weight, Color mainColor, Color dopColor,
-       bool frontSpoiler, bool sideSpoiler, bool backSpoiler) :
-        base(maxSpeed, weight, mainColor)
+bool frontSpoiler, bool sideSpoiler, bool backSpoiler) :
+ base(maxSpeed, weight, mainColor)
         {
             DopColor = dopColor;
             FrontSpoiler = frontSpoiler;
             SideSpoiler = sideSpoiler;
-
             BackSpoiler = backSpoiler;
             Random rnd = new Random();
-            CountLines = rnd.Next(1, 4);
         }
+        public SportCar(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 8)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                FrontSpoiler = Convert.ToBoolean(strs[4]);
+                BackSpoiler = Convert.ToBoolean(strs[5]);
+                SideSpoiler = Convert.ToBoolean(strs[6]);
+            }
+        }
+
         public void SetDopColor(Color color)
         {
             DopColor = color;
-
         }
 
 
@@ -84,7 +98,7 @@ namespace PT_lab_1
             Pen pen = new Pen(Color.Black);
             Brush dopBrush = new SolidBrush(DopColor);
             // отрисуем сперва передний спойлер автомобиля (чтобы потом отрисовка
-            
+           // автомобиля на него "легла")
             if (FrontSpoiler)
             {
                 g.DrawEllipse(pen, _startPosX + 80, _startPosY - 6, 20, 20);
@@ -107,55 +121,20 @@ namespace PT_lab_1
                 g.FillRectangle(dopBrush, _startPosX, _startPosY - 5, 15, 15);
                 g.FillRectangle(dopBrush, _startPosX, _startPosY + 40, 15, 15);
             }
-            // и боковые
+            base.DrawCar(g);
+
             if (SideSpoiler)
             {
                 g.DrawRectangle(pen, _startPosX + 25, _startPosY - 6, 39, 10);
                 g.DrawRectangle(pen, _startPosX + 25, _startPosY + 45, 39, 10);
-                g.FillRectangle(dopBrush, _startPosX + 25, _startPosY - 5, 40, 10);
-                g.FillRectangle(dopBrush, _startPosX + 25, _startPosY + 45, 40, 10);
             }
-            // теперь отрисуем основной кузов автомобиля
-            base.DrawCar(g);
-            // рисуем гоночные полоски
-            switch (_countLines)
+            if (SideSpoiler)
             {
-                case 1:
-                    g.FillRectangle(dopBrush, _startPosX + 65, _startPosY + 18, 25,
-                   15);
-                    g.FillRectangle(dopBrush, _startPosX + 25, _startPosY + 18, 35,
-                   15);
-                    g.FillRectangle(dopBrush, _startPosX, _startPosY + 18, 20, 15);
-                    break;
-                case 2:
-                    g.FillRectangle(dopBrush, _startPosX + 65, _startPosY + 15, 25, 8);
-                    g.FillRectangle(dopBrush, _startPosX + 65, _startPosY + 28, 25, 8);
-                    g.FillRectangle(dopBrush, _startPosX + 25, _startPosY + 15, 35, 8);
-                    g.FillRectangle(dopBrush, _startPosX + 25, _startPosY + 28, 35, 8);
-                    g.FillRectangle(dopBrush, _startPosX, _startPosY + 15, 20, 8);
-                    g.FillRectangle(dopBrush, _startPosX, _startPosY + 28, 20, 8);
-                    break;
-                case 3:
-                    g.FillRectangle(dopBrush, _startPosX + 65, _startPosY + 15, 25, 5);
-                    g.FillRectangle(dopBrush, _startPosX + 65, _startPosY + 23, 25, 5);
-                    g.FillRectangle(dopBrush, _startPosX + 65, _startPosY + 31, 25, 5);
-                    g.FillRectangle(dopBrush, _startPosX + 25, _startPosY + 15, 35, 5);
-                    g.FillRectangle(dopBrush, _startPosX + 25, _startPosY + 23, 35, 5);
-                    g.FillRectangle(dopBrush, _startPosX + 25, _startPosY + 31, 35, 5);
-                    g.FillRectangle(dopBrush, _startPosX, _startPosY + 15, 20, 5);
-                    g.FillRectangle(dopBrush, _startPosX, _startPosY + 23, 20, 5);
-                    g.FillRectangle(dopBrush, _startPosX, _startPosY + 31, 20, 5);
-                    break;
-            }
+                g.DrawRectangle(pen, _startPosX + 25, _startPosY - 6, 39, 10);
+                g.DrawRectangle(pen, _startPosX + 25, _startPosY + 45, 39, 10);
 
-            // рисуем задний спойлер автомобиля
-            if (BackSpoiler)
-            {
-                g.FillRectangle(dopBrush, _startPosX - 5, _startPosY, 10, 50);
-                g.DrawRectangle(pen, _startPosX - 5, _startPosY, 10, 50);
             }
         }
     }
-
 }
 
