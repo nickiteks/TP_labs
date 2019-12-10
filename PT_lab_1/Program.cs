@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace PT_lab_1
 {
+    public delegate void carDelegate(ITransport car);
     static class Program
     {
         /// <summary>
@@ -16,7 +17,7 @@ namespace PT_lab_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormCar());
+            Application.Run(new FormParking());
         }
     }
 }
